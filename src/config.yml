@@ -1,0 +1,21 @@
+app:
+  name: weather_pipeline
+
+paths:
+  raw_data: "weather_data.csv"
+  bronze_path: "dbfs:/FileStore/lakehouse/bronze/weather"
+  catalog: "weather"
+
+tables:
+  bronze_table: "weather.bronze.bronze_weather"
+  silver_table: "weather.silver.silver_weather"
+  gold_table: "weather.gold.gold_weather_summary"
+
+spark:
+  database: "weather"
+  squema: "weather.bronze"
+  write_mode: "overwrite"
+
+kagel:
+  user: "treu11"
+  token: "KGAT_a2efd18fe71056b825b4a3809d0ad9de"
